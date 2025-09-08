@@ -1,17 +1,19 @@
-# README
+# learningruby
+Ruby learning apps
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README documents the Rails application setup and usage.
+
+## Getting Started
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 3.4.5
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* Database creation: PostgreSQL
 
 * Database initialization
 
@@ -20,5 +22,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
