@@ -23,6 +23,37 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background-color: #f8f9fa; border-bottom: 1px solid #ddd;">
+          <div>
+            <%= link_to "Home", root_path, style: "text-decoration: none; font-weight: bold;" %>
+          </div>
+          <div>
+            <% if user_signed_in? %>
+              <span>Welcome, <%= current_user.email %>!</span>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, 
+                          style: "margin-left: 1rem; padding: 0.5rem 1rem; background-color: #dc3545; color: white; text-decoration: none; border-radius: 4px;" %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path, 
+                          style: "margin-right: 1rem; padding: 0.5rem 1rem; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px;" %>
+              <%= link_to "Sign Up", new_user_registration_path, 
+                          style: "padding: 0.5rem 1rem; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px;" %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main style="padding: 1rem;">
+      <% if notice %>
+        <p class="notice" style="color: green; background-color: #d4edda; padding: 0.75rem; border-radius: 4px; margin-bottom: 1rem;"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert" style="color: #721c24; background-color: #f8d7da; padding: 0.75rem; border-radius: 4px; margin-bottom: 1rem;"><%= alert %></p>
+      <% end %>
+      
+      <%= yield %>
+    </main>
   </body>
 </html>
